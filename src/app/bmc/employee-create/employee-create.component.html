@@ -1,0 +1,36 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="col-md-6" style="margin: auto;">
+    <h2 class="text-center">{{editFlag? 'Edit Employee' : 'Add Employee'}}</h2>
+    <form [formGroup]="createForm" (ngSubmit)="submitForm()" *ngIf="createForm">
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" pattern="[a-zA-Z]*" formControlName="firstname" name="firstname" class="form-control"
+                id="firstname">
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" pattern="[a-zA-Z]*" formControlName="lastname" name="lastname" class="form-control"
+                id="lastname">
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" formControlName="age" name="age" class="form-control" id="age">
+        </div>
+
+        <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" formControlName="salary" name="salary" class="form-control" id="salary">
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department:</label>
+            <input type="text" pattern="[a-zA-Z]*" formControlName="department" name="department" class="form-control"
+                id="department">
+        </div>
+        <label>Note: *All fields are required</label><br>
+        <button [disabled]="createForm.invalid" class="btn btn-success">{{editFlag? 'Update' : 'Create'}}</button>
+        <button class="btn btn-outline-danger" (click)="back()" style="margin-left:10px;">Cancel</button>
+    </form>
+</div>

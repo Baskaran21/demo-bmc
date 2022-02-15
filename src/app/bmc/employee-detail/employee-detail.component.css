@@ -1,0 +1,5 @@
+.container-emp {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }

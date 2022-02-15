@@ -1,0 +1,42 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="col-md-6 container-emp">
+    <h2 style="margin: auto"> Employee Details</h2>
+    <div style="margin-top:15px;">
+        <button class="btn btn-success" style="width:170px; float:right;" (click)="addUser()">+ Create Employee</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <input style="display: inline;" type="text" class="form-control" placeholder="Search"
+            [(ngModel)]="searchedKeyword">
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Department</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees | filter:searchedKeyword">
+                    <td>{{employee.firstname}}</td>
+                    <td>{{employee.lastname}}</td>
+                    <td>{{employee.department}}</td>
+                    <td>{{employee.age}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td style="min-width: 140px;">
+                        <button class="btn btn-primary" (click)="editUser(employee)" style="margin-left: 10px;">
+                            Edit</button>
+                        <a style="cursor: pointer;" (click)="deleteUser(employee)">
+                            <img src="assets/delete_icon.png" style="width:34px;height:30px;margin-left: 10px;"></a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
